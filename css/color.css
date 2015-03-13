@@ -1,0 +1,22 @@
+body{
+
+	margin-top:70px;
+	background-color: #ccc;
+}
+
+a{
+	color: #000;
+}
+
+h4{
+	text-decoration: underline;
+}
+
+.jumbotron{
+
+	text-align: center;
+}
+
+li{
+	list-style: none;
+}
