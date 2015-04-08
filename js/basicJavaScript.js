@@ -13,3 +13,7 @@ function validate() {
 }
 
 document.getElementById('signIn').onsubmit = validate;
+
+function loadNewUserPage(){
+	location.href = "newUserPage.html";
+}
