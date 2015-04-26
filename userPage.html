@@ -86,10 +86,12 @@
           <p class="lead">
               <div ng-controller="getSpot">
                   <div ng-repeat="parkingSpot in spot">
-                      <button  ng-click="expression" ng-show="parkingSpot.vacant" id="{{parkingSpot.vacant}}">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
+                      <button ng-model="parkingSpot" ng-click="put(parkingSpot)" ng-show="parkingSpot.vacant">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
                   </div>
               </div>
           </p>
+
+
 
 		    <!--<p><a class="btn btn-default" href="" target="_blank" role="button">Download Mobile App &raquo;</a></p>-->
         </div>
