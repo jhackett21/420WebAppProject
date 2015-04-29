@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/color.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="js/resources.js"></script>
+    <script type="js/parkItMongo.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
   </head>
-  
-  <body>
+
+  <body ng-app="parking">
 
   <div class="navbar navbar-inverse navbar-fixed-top">
-    
+
     <div class="container">
 
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +27,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand text-muted" href="#">user</a>
+        <a class="navbar-brand text-muted" href="#"><div ng-controller="ParkingController">Welcome {{spot[5].firstName}}</div></a>
 
           <div class="collapse navbar-collapse">
              <ul class="nav navbar-nav navbar-right">
@@ -35,7 +38,7 @@
            </div>
 
     </div>
-    
+
   </div>
    <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -45,14 +48,18 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" >
+        <div ng-controller="ParkingController">
           <h2>Account Information</h2>
-          <p>Username:</p>
-		  <p>First Name:</p>
-		  <p>Last Name:</p>
-		  <p>Car Type:</p>
-		  <p>License Plate:</p>
-		  <p>Student ID:</p>
+          <p>Username: {{user[5].userName}}</p>
+		  <p>First Name: {{user[5].firstName}}</p>
+		  <p>Last Name: {{user[5].lastName}}</p>
+        </div>
+        <div ng-controller="getCars">
+		  <p>Car Type: {{cars[5].modelName}}</p>
+		  <p>License Plate: {{cars[5].licensePlate}}</p>
+
+        </div>
 		   <!-- <p><a class="btn btn-default" href="http://support.xbox.com/en-US/xbox-360/system/system-updates-info?icid=furl_update" target="_blank" role="button">View Updates &raquo;</a></p>-->
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -66,10 +73,13 @@
         <div class="col-md-7">
           <h2 class="featurette-heading">Current<span class="text-muted"></span></h2>
           <p class="lead"></p>
-		  
+            <div ng-controller="getSpot">
+              <p >{{ParkedSpot}}</p>
+            </div>
+
 		  <!--  <p><a class="btn btn-default" href="http://www.microsoft.com/en-us/download/details.aspx?id=44561" target="_blank" role="button">View Updates &raquo;</a></p>-->
         </div>
-        <div class="col-md-5">          
+        <div class="col-md-5">
         </div>
       </div>
 
@@ -77,36 +87,54 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Available Spots<span class="text-muted"></span></h2>
-          <p class="lead"></p>
-	
+          <p class="lead">
+<<<<<<< HEAD
+              <div ng-controller="getSpot" ng-init="getOpenSpots()">
+                  <div >
+                      <button ng-repeat="parkingSpot in spot" class="btn" ng-model="parkingSpot" ng-click="put(parkingSpot); getOpenSpots()" ng-show="parkingSpot.vacant">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
+=======
+              <div ng-controller="getSpot">
+                  <div ng-repeat="parkingSpot in spot">
+                      <button ng-model="parkingSpot" ng-click="put(parkingSpot)" ng-show="parkingSpot.vacant">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
+>>>>>>> origin/master
+                  </div>
+              </div>
+          </p>
+
+
+
 		    <!--<p><a class="btn btn-default" href="" target="_blank" role="button">Download Mobile App &raquo;</a></p>-->
-        </div>        
+        </div>
       </div>
 
-	  
+
       <hr class="featurette-divider">
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Previous Spots<span class="text-muted"></span></h2>
-          <p class="lead"></p>
-	
+            <div>
+              <p class="lead">
+
+
+              </p>
+            </div>
 		    <!--<p><a class="btn btn-default" href="" target="_blank" role="button">Download Mobile App &raquo;</a></p>-->
-        </div>        
+        </div>
       </div>
 
-     
+
        <hr class="featurette-divider">
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Rewards<span class="text-muted"></span></h2>
           <p class="lead"></p>
-	
+
 		    <!--<p><a class="btn btn-default" href="" target="_blank" role="button">Download Mobile App &raquo;</a></p>-->
-        </div>        
+        </div>
       </div>
 
 	  <hr class="featurette-divider">
-	  
+
     <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -120,6 +148,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../../assets/js/vendor/holder.js"></script>
