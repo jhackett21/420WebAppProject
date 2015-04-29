@@ -82,3 +82,27 @@ function send(){
 
 }
 
+function setVacant(){
+
+
+
+
+	//Creates JSON object that will be sent to the MongoDB
+
+
+	//MONGOLAB API
+	//if(validEmail ===  true){
+		$.ajax( { url: "https://api.mongolab.com/api/1/databases/parkit/collections/ParkingLot?apiKey=X_7L-M-OY0e-hjHbhVsIM-JLeorp_-xG&q={'spotNumber':3}",
+			  data: JSON.stringify({
+			  	"lotName": "WoodLand",
+    				"spotNumber": 3,
+			  	"vacant":false,
+			  	//vehicleID: userCar
+			  }),
+			  type: "PUT",
+			  contentType: "application/json" } );
+	//}
+
+}
+
+
