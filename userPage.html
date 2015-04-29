@@ -88,12 +88,20 @@
         <div class="col-md-7">
           <h2 class="featurette-heading">Available Spots<span class="text-muted"></span></h2>
           <p class="lead">
+<<<<<<< HEAD
               <div ng-controller="getSpot" ng-init="getOpenSpots()">
                   <div >
                       <button ng-repeat="parkingSpot in spot" class="btn" ng-model="parkingSpot" ng-click="put(parkingSpot); getOpenSpots()" ng-show="parkingSpot.vacant">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
+=======
+              <div ng-controller="getSpot">
+                  <div ng-repeat="parkingSpot in spot">
+                      <button ng-model="parkingSpot" ng-click="put(parkingSpot)" ng-show="parkingSpot.vacant">{{parkingSpot.lotName+ "Spot "+ parkingSpot.spotNumber}}</button>
+>>>>>>> origin/master
                   </div>
               </div>
           </p>
+
+
 
 		    <!--<p><a class="btn btn-default" href="" target="_blank" role="button">Download Mobile App &raquo;</a></p>-->
         </div>
